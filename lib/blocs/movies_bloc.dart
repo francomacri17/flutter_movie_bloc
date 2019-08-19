@@ -4,13 +4,13 @@ import 'package:rxdart/rxdart.dart';
 
 class MoviesBloc{
   final _movieRepository = MovieRepository();
-  final _movies = PublishSubject();
+  final _movies = PublishSubject<MovieItem>();
 
-  Observable<MovieItem> get popilarMovies => _movies.stream;
+  Observable<MovieItem> get popularMovies => _movies.stream;
 
   // Get popular movies
   getPopularMovies() async{
-    MovieItem movieItem = await _movieRepository.GetPopularMovies();
+    MovieItem movieItem = await _movieRepository.getPopularMovies();
     _movies.sink.add(movieItem);
   }
 
