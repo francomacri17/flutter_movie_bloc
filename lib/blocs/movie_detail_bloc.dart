@@ -13,7 +13,6 @@ class MovieDetailBloc{
   }
 
   getMovieTrailersById(int movieId) async {
-
     TrailerItem trailerItem = await _movieRepository.getMovieTrailers(movieId);
     _trailers.sink.add(trailerItem);
   }

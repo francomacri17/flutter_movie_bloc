@@ -22,11 +22,13 @@ class MovieApiProvider{
   }
 
   Future<TrailerItem> getTrailerItem(int movieId) async{
-    final response = await http.get('$_baseURL/$movieId/videos?api_key=$_apiKey');
+    final response = await http.get('$_baseURL/movie/$movieId/videos?api_key=$_apiKey');
     if(response.statusCode == 200){
       return TrailerItem.fromJson(json.decode(response.body));
     }else{
       throw Exception('Ocurrio un error inesperado');
     }
   }
+
+  getMovieVideo(int movieId) {}
 }

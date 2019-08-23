@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_bloc/blocs/movies_bloc.dart';
 import 'package:flutter_movie_bloc/models/movie_item.dart';
+import 'package:flutter_movie_bloc/resources/movie_detail_bloc_provider.dart';
+
+import 'movie_detail.dart';
 
 class MovieList extends StatefulWidget {
   @override
@@ -62,5 +65,16 @@ class _MovieListState extends State<MovieList> {
         });
   }
 
-  openDetailMovie(MovieItem data, int index) {}
+  openDetailMovie(MovieItem data, int index) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return MovieDetailBlocProvider(
+          child: MovieDetail(
+              title: data.results[index].title,
+              movieId: data.results[index].id,
+              description: data.results[index].overview,
+              releaseDate: data.results[index].releaseDate,
+              voteAverage: data.results[index].voteAverage,
+              posterUrl: data.results[index].posterPath));
+    }));
+  }
 }

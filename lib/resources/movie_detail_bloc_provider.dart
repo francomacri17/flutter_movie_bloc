@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_movie_bloc/blocs/movie_detail_bloc.dart';
 
 class MovieDetailBlocProvider extends InheritedWidget{
