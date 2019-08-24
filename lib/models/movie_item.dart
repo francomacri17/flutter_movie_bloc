@@ -73,7 +73,7 @@ class Result {
     voteCount: json["vote_count"],
     id: json["id"],
     video: json["video"],
-    voteAverage: json["vote_average"].toDouble(),
+    voteAverage: double.parse(json["vote_average"].toString()),
     title: json["title"],
     popularity: json["popularity"].toDouble(),
     posterPath: json["poster_path"],
